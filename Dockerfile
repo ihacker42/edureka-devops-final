@@ -18,6 +18,9 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 # Expose port 80 for the web server
 EXPOSE 80
 
+# Set the DefaultRuntimeDir to a valid directory
+RUN sed -i 's|^\(.*DefaultRuntimeDir\).*|\1 "/var/run/apache2"|' /etc/apache2/apache2.conf
+
 # Start the Apache server
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
