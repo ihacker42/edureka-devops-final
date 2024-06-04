@@ -19,4 +19,4 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 EXPOSE 80
 
 # Start the Apache server
-CMD ["apache2-foreground"]
+CMD ["apache2"]
