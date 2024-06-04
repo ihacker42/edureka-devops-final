@@ -10,7 +10,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /var/www/html
-COPY . /var/www/html
+COPY ./website /var/www/html
 
 # Set permissions for the web server to read and write files
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
