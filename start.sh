@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
-# Start Apache
-exec apache2 -D FOREGROUND
+# Start Nginx
+exec nginx -g 'daemon off;'
