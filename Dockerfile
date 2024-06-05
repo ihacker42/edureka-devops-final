@@ -4,9 +4,9 @@ FROM devopsedu/webapp
 # Set the working directory
 WORKDIR /var/www/html
 
-# Update package lists and install Nginx
+# Update package lists and install Nginx and PHP-FPM
 RUN apt-get update \
-    && apt-get install -y nginx php8.1-fpm \
+    && apt-get install -y nginx php-fpm \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /var/www/html
@@ -24,7 +24,7 @@ COPY nginx.conf /etc/nginx/sites-enabled/default
 # Expose port 80 for the web server
 EXPOSE 80
 
-# Start the Nginx server
+# Start the Nginx and PHP-FPM services
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
 CMD ["start.sh"]
