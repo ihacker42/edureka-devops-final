@@ -6,7 +6,7 @@ WORKDIR /var/www/html
 
 # Update package lists and install Nginx
 RUN apt-get update \
-    && apt-get install -y nginx php-fpm \
+    && apt-get install -y nginx php8.1-fpm \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /var/www/html
